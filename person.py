@@ -17,7 +17,7 @@ class Person:
     @classmethod
     def from_dict(cls, data):
         person = cls()
-        person.name = data["Name"]
-        person.number = data["Number"]
-        person.email = data["E-mail"]
+        person.name = data["name"]
+        person.number = data["number"]
+        person.email = data["email"]
         return person
