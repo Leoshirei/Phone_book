@@ -1,5 +1,5 @@
 #Phone book
-#Logic
+#Logic class
 
 import os
 
@@ -20,14 +20,14 @@ class Logic:
 
     def delete_contact(self, phone_list):
         os.system("cls")
-        print("Deleteing person")
+        print("Deleting person")
         print("--------------------")
         self._show_list(phone_list)
         print("--------------------")
         try:
-            in_delete = int(input("Wich person you want to delete: "))
+            in_delete = int(input("Which person you want to delete: "))
             in_delete -= 1
-            if in_delete < 0 or in_delete > len(phone_list):
+            if in_delete < 0 or in_delete >= len(phone_list):
                 print("Error 404: person does not exist!")
             else:
                 phone_list.pop(in_delete)
@@ -44,7 +44,7 @@ class Logic:
         try:
             in_update = int(input("Which person you want to update: "))
             in_update -= 1
-            if in_update < 0 or in_update > len(phone_list):
+            if in_update < 0 or in_update >= len(phone_list):
                 print("Error 404: person does not exist!")
             else:
                 try:
@@ -68,7 +68,7 @@ class Logic:
             print("Error 101: Wrong value")
             os.system("pause")
 
-    def show_contacs(self, phone_list):
+    def show_contatcs(self, phone_list):
         os.system("cls")
         self._show_list(phone_list)
         os.system("pause")

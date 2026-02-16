@@ -3,11 +3,12 @@
 import os
 import logic
 import person
+import storage
 
 choose = 0
 phone_data = []
 logic_phone = logic.Logic()
-
+phone_data = storage.load_data()
 while choose != 9:
     os.system("cls")
     print("--------------------")
@@ -36,7 +37,7 @@ while choose != 9:
             else:
                 logic_phone.show_contacs(phone_data)
         elif choose == 9:
-            print("You pressed 9")
+            storage.save_data(phone_data)
             exit()
         else:
             print("Wrong Choice!")
