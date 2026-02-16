@@ -22,11 +22,10 @@ while choose != 9:
         if choose == 1:
             person_phone = person.Person()
             logic_phone.add_contact(phone_data, person_phone)
-            print("You pressed 1")
         elif choose == 2:
-            print("You pressed 2")
+            logic_phone.delete_contact(phone_data)
         elif choose == 3:
-            print("You pressed 3")
+            logic_phone.show_contacs(phone_data)
         elif choose == 4:
             print("Your pressed 4")
         elif choose == 9:
