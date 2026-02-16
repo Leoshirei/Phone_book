@@ -35,7 +35,7 @@ while choose != 9:
             if phone_data == []:
                 print("You have no person in 'Phone Book'")
             else:
-                logic_phone.show_contacs(phone_data)
+                logic_phone.show_contatcs(phone_data)
         elif choose == 9:
             storage.save_data(phone_data)
             exit()
