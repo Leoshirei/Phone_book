@@ -11,6 +11,7 @@ logic_phone = logic.Logic()
 while choose != 9:
     os.system("cls")
     print("--------------------")
+    print("You have " + str(len(phone_data)) + " person in 'Phone Book'")
     print("1. Add contact")
     print("2. Delete contact")
     print("3. Update contact")
@@ -25,9 +26,15 @@ while choose != 9:
         elif choose == 2:
             logic_phone.delete_contact(phone_data)
         elif choose == 3:
-            logic_phone.show_contacs(phone_data)
+            if phone_data == []:
+                print("You have no person in 'Phone Book'")
+            else:
+                logic_phone.update_contact(phone_data)
         elif choose == 4:
-            print("Your pressed 4")
+            if phone_data == []:
+                print("You have no person in 'Phone Book'")
+            else:
+                logic_phone.show_contacs(phone_data)
         elif choose == 9:
             print("You pressed 9")
             exit()

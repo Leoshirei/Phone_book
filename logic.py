@@ -22,8 +22,7 @@ class Logic:
         os.system("cls")
         print("Deleteing person")
         print("--------------------")
-        for index, person in enumerate(phone_list, start = 1):
-            print(index, person.name, person.number, person.email)
+        self._show_list(phone_list)
         print("--------------------")
         try:
             in_delete = int(input("Wich person you want to delete: "))
@@ -35,8 +34,45 @@ class Logic:
                 print("Deleted person successfully!")
         except ValueError:
             print("Error 101: Wrong value")
+
+    def update_contact(self, phone_list):
+        os.system("cls")
+        print("Updating person data")
+        print("--------------------")
+        self._show_list(phone_list)
+        print("--------------------")
+        try:
+            in_update = int(input("Which person you want to update: "))
+            in_update -= 1
+            if in_update < 0 or in_update > len(phone_list):
+                print("Error 404: person does not exist!")
+            else:
+                try:
+                    os.system("cls")
+                    print("Updating: " + phone_list[in_update].name, phone_list[in_update].number, phone_list[in_update].email)
+                    print("1. Name")
+                    print("2. Phone number")
+                    print("3. Email")
+                    person_choice = int(input("Which data you want to update: "))
+                    if person_choice < 0 or person_choice > 3:
+                        print("Error 403: data does not exist!")
+                    elif person_choice == 1:
+                        phone_list[in_update].name = input("Enter name: ")
+                    elif person_choice == 2:
+                        phone_list[in_update].number = input("Enter phone number: ")
+                    elif person_choice == 3:
+                        phone_list[in_update].email = input("Enter e-mail: ")
+                except ValueError:
+                    print("Error 101: Wrong value")
+        except ValueError:
+            print("Error 101: Wrong value")
+            os.system("pause")
+
     def show_contacs(self, phone_list):
         os.system("cls")
+        self._show_list(phone_list)
+        os.system("pause")
+
+    def _show_list(self, phone_list):
         for index, person in enumerate(phone_list, start = 1):
             print(index, person.name, person.number, person.email)
-        os.system("pause")
